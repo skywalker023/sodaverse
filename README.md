@@ -32,6 +32,8 @@ You can now load COSMO-3B from the [HuggingFace hub](https://huggingface.co/alle
 
 ### Have a chat with Cosmo!
 
+> 🚨 <b>Disclaimer:</b> We would like to emphasize that COSMO is trained on SODA and ProsocialDialog mainly for academic/research purposes. We discourage using COSMO in real-world applications or services as is. Model outputs should not be used for advice for humans, and could be potentially offensive, problematic, or harmful. The model’s output does not necessarily reflect the views and opinions of the authors and their associated affiliations.
+
 #### Environment setup
 
 We recommend you create a conda environment as follows:
@@ -53,5 +55,12 @@ By running the command below, Cosmo will be automatically downloaded and you can
 ```bash
 python chat_with_cosmo.py
 ```
+
+#### Limitations
+
+Cosmo is mostly trained on social chitchat. Therefore, we do not encourage having knowledge-intensive conversations (e.g., science, medical issues, law).
+For detailed limitations, please refer to our [paper](https://arxiv.org/abs/2212.10465).
+
+## Other
 
 We will also be releasing our 🫧CO<sub>3</sub>! Stay tuned!
