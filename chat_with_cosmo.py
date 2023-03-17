@@ -78,6 +78,7 @@ class CosmoAgent:
                 print(cf.green("[Conversation history cleared. Chat with Cosmo!]"))
                 continue
             if user_input == "[END]":
+                self.reset_history()
                 break
             response = self.generate(situation_narrative, role_instruction, user_input)
             print(cf.blue("Cosmo: " + response))
