@@ -4,8 +4,10 @@
 ![cosmo-in-soda](assets/new_cover.png)
 
 <p align="center">
- This is the official repository for our EMNLP paper:<br><a href="https://arxiv.org/abs/2212.10465"><b>SODA: Million-scale Dialogue Distillation with Social Commonsense Contextualization</b></a>
+  This is the official repository for our EMNLP paper:<br><a href="https://aclanthology.org/2023.emnlp-main.799/">SODA: Million-scale Dialogue Distillation with Social Commonsense Contextualization</a>
+  <br><br><b>🏆 SODA won the Outstanding Paper Award at EMNLP 2023!</b>
 </p>
+<br>
 
 ```
 @inproceedings{kim2023soda,
