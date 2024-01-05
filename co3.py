@@ -48,7 +48,7 @@ class CO3():
 
     def identify_interlocutor_with_gpt3(self, prompt):
         response = openai.Completion.create(
-            model="text-davinci-003",
+            model="gpt-3.5-turbo-instruct",
             prompt=prompt,
             temperature=0,
             max_tokens=16,
@@ -106,10 +106,10 @@ class CO3():
         print()
         print(cf.bold | cf.ghostWhite("[[ SODA coming up right now! ]]"))
         print()
-    
+
     def run(self):
         last_save_point = self._load_last_save_point()
-            
+
         t = tqdm(total=len(self.atomic10x))
         for current_idx, data_input in self.atomic10x.iterrows():
             if current_idx <= last_save_point:
@@ -119,7 +119,7 @@ class CO3():
             if self.args.generation_limit is not None:
                 if current_idx > self.args.generation_limit:
                     break
-            
+
             sentence_form_triple = data_input['input_text']
             narrative_result = self._collect_narrative(sentence_form_triple, **data_input)
             output = self._collect_dialogue(narrative_result['narrative'], **data_input)
@@ -164,7 +164,7 @@ class CO3():
 
         # if it contained "\n\n" in the first place, maybe that caused the dialogue to stop. So, continue generating with the cleaned dialogue
         if "\n\n" in raw_dialogue or length < self.args.min_dialogue_turn:
-            continue_generation = True 
+            continue_generation = True
         else:
             continue_generation = False
 
@@ -281,13 +281,13 @@ class CO3():
         return result
 
     def _parse_dialogue_output(self, raw_dialogue, prompt, previous_result=None, **data_input):
-        # need to add the first speaker prefix 
+        # need to add the first speaker prefix
         if previous_result is None:
             starting_speaker = prompt.split()[-1]
             raw_dialogue = starting_speaker + raw_dialogue
         else:
             starting_speaker = previous_result['speakers'][0]
-        
+
         # clean up dialogue
         clean_dialogue = cleanup_dialogue(raw_dialogue)
         dialogue = clean_dialogue['dialogue']
@@ -403,7 +403,7 @@ def main(args):
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='arguments for generating dialogues using instruct gpt3')
     parser.add_argument('--dataset',
-                        type=str, 
+                        type=str,
                         default='atomic10x')
     parser.add_argument('--run-id',
                         type=str,
