@@ -1,10 +1,10 @@
 name: sodaverse
 channels:
-  - defaults
   - conda-forge
+  - defaults
 dependencies:
   - python=3.9.16
-  - pip=20.2.3
+  - pip
   - pip:
     - openai==0.27.6
     - transformers==4.34.1
